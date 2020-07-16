@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>icons/一级菜单/工单管理_n</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icons/一级菜单/工单管理_n" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-2">
+            <rect id="Rectangle" fill="#FFFFFF" opacity="0" x="0" y="0" width="14" height="14"></rect>
+            <g id="编组" transform="translate(1.000000, 0.000000)">
+                <path d="M11,0 C11.5522847,0 12,0.44771525 12,1 L12,13 C12,13.5522847 11.5522847,14 11,14 L1,14 C0.44771525,14 0,13.5522847 0,13 L0,1 C0,0.44771525 0.44771525,0 1,0 L11,0 Z M11,1 L1,1 L1,13 L11,13 L11,1 Z" id="矩形" fill="#D3D6DC" fill-rule="nonzero"></path>
+                <rect id="矩形" stroke="#D3D6DC" x="3" y="0.5" width="6" height="2" rx="1"></rect>
+                <path d="M9.83573918,11.0418733 C10.0547536,11.2605868 10.0547536,11.6207439 9.83573918,11.8394575 C9.61672474,12.058171 9.25767381,12.058171 9.03865938,11.8394575 L7.10071349,9.89984795 C6.55384108,10.1342775 5.89746146,10.0249207 5.44416796,9.57112277 C5.05326038,9.18018864 4.9125602,8.61703395 5.05326038,8.11674305 C5.11564631,7.86659759 6.11581222,9.44605004 6.77219184,8.77353857 C7.4438361,8.10168193 5.86560482,7.11616123 6.11581222,7.05329745 C6.61622701,6.91250878 7.17836406,7.05329745 7.56927164,7.44423158 C8.02256514,7.89802948 8.11614404,8.55482501 7.89779328,9.10226375 L9.83573918,11.0418733 Z" id="形状" fill="#D3D6DC" fill-rule="nonzero" transform="translate(7.500000, 9.501746) scale(-1, 1) translate(-7.500000, -9.501746) "></path>
+                <rect id="矩形" fill="#D3D6DC" x="2" y="8" width="4" height="1" rx="0.5"></rect>
+                <rect id="矩形备份-2" fill="#D3D6DC" x="2" y="5" width="8" height="1" rx="0.5"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

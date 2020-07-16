@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>logo</title>
+    <desc>Created with Sketch.</desc>
+    <g id="0.1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="一级菜单_n" transform="translate(-24.000000, -24.000000)">
+            <g id="logo">
+                <g transform="translate(24.000000, 24.000000)">
+                    <g>
+                        <circle id="Oval-2-Copy" fill="#DA241D" fill-rule="nonzero" cx="16" cy="16" r="16"></circle>
+                        <path d="M6,8 L18,8 L18,13.6 L6,13.6 L6,8 Z M6,16.8 L16.4,16.8 L16.4,24 L6,24 L6,16.8 Z M18,13.6 L26,13.6 L26,24 L18,24 L18,13.6 Z M20.4,8 L26,8 L26,12 L20.4,12 L20.4,8 Z" id="Combined-Shape-Copy-2" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

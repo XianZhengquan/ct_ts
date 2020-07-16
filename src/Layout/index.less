@@ -1,0 +1,302 @@
+#root {
+    // 整体的底色
+    @layout-bg: #EFEFEF;
+    // 左边的颜色
+    @normal-bg: #263354;
+    @back-bg: #4D6DE4;
+
+    .i-layout {
+        width: 100%;
+        height: 100%;
+        background: #212348;
+
+        // 左侧收起来的样式
+        .i-layout-sider.ant-layout-sider-collapsed {
+            width: 64px !important;
+            max-width: 64px !important;
+            min-width: 64px !important;
+            flex: 0 0 64px !important;
+        }
+
+        .i-layout-sider {
+            height: 100%;
+            overflow: hidden;
+
+            .ant-layout-sider-children {
+                height: 100%;
+                overflow-x: hidden;
+                overflow-y: auto;
+                margin-right: -17px;
+
+                .sider-wrap {
+                    height: 100%;
+                    background: @normal-bg;
+                    position: relative;
+
+                    .logo-wrap {
+                        position: sticky;
+                        top: 0;
+                        left: 0;
+                        z-index: 1;
+                        width: 100%;
+                        height: 84px;
+                        padding-top: 16px;
+                        padding-left: 20px;
+                        background: @normal-bg;
+
+                        .logo {
+                            img {
+                                max-width: 100%;
+                                height: auto;
+                            }
+                        }
+
+                        .menu-type {
+                            font-size: 14px;
+                            color: #fff;
+                            height: 20px;
+                            line-height: 1;
+                            text-align: right;
+                            padding-right: 21px;
+                        }
+                    }
+
+                    .logo-wrap.exp {
+                        padding: 0;
+
+                        .logo {
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                    }
+
+                    .workbench {
+                        position: sticky;
+                        top: 84px;
+                        left: 0;
+                        z-index: 1;
+                        width: 100%;
+                        height: 56px;
+                        display: flex;
+                        align-items: center;
+                        background: #1C253D;
+                        padding-left: 8px;
+                        color: #fff;
+                        font-size: 14px;
+
+                        .avatar {
+                            width: 26px;
+                            height: 26px;
+                            background: #515B76;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: #fff;
+                            font-size: 16px;
+                            line-height: 1;
+                        }
+                    }
+
+                    .workbench.exp {
+                        justify-content: center;
+                        padding-left: 0;
+
+                        .avatar {
+                            width: 30px;
+                            height: 30px;
+                            font-size: 18px;
+                        }
+                    }
+
+                    .left-menu {
+                        overflow: hidden;
+                        padding: 0 4px;
+                        min-height: calc(100% - 144px); // 工作台打开后再加上 56px 200px
+                    }
+
+                    .sider-collapsed {
+                        cursor: pointer;
+                        position: sticky;
+                        bottom: 0;
+                        left: 0;
+                        z-index: 1;
+                        width: 100%;
+                        height: 60px;
+                        color: #fff;
+                        background: #1C253D;
+                        display: flex;
+                        align-items: center;
+                        padding-left: 24px;
+                    }
+
+                    // 修改背景色
+                    .left-menu.ant-menu-dark,
+                    .left-menu.ant-menu-dark .ant-menu-sub {
+                        background: @normal-bg;
+                    }
+
+                    // 修改具体的样式
+                    .left-menu.ant-menu {
+                        // 去掉子集的阴影
+                        .ant-menu-inline.ant-menu-sub {
+                            box-shadow: none;
+                        }
+
+                        // subMenuTitle 和 1级 ant-menu-item 的样式
+                        .ant-menu-submenu-title,
+                        > .ant-menu-item {
+                            padding-left: 20px !important;
+                            font-weight: 500;
+
+                            a, span {
+                                color: rgba(255, 255, 255, .8);
+                            }
+
+                            // title 中的icon 距离右边16px
+                            .anticon {
+                                margin-right: 16px;
+                            }
+                        }
+
+                        // 有子集里面的样式修改
+                        // 字体、颜色、背景色
+                        .ant-menu-submenu {
+                            .ant-menu-item {
+                                font-size: 14px;
+                                color: #c2c5cf;
+                                padding-left: 52px !important;
+                                margin: 0 0 2px 0;
+                                height: 38px;
+                            }
+                        }
+
+                        // 修改选中颜色
+                        > .ant-menu-submenu.ant-menu-submenu-selected {
+                            .ant-menu-item.ant-menu-item-selected {
+                                a {
+                                    color: #fff;
+                                }
+
+                                border-radius: 2px;
+                                background: rgba(255, 255, 255, .2);
+                            }
+                        }
+
+                        > .ant-menu-item.ant-menu-item-selected {
+                            a {
+                                color: #fff;
+                            }
+
+                            border-radius: 2px;
+                            background: rgba(255, 255, 255, .2);
+                        }
+
+                        // 修改一级的margin
+                        > .ant-menu-submenu,
+                        > .ant-menu-item {
+                            margin-bottom: 16px;
+                        }
+
+                        // 通用修改
+                        .ant-menu-item {
+                            .menu-item-title {
+                                display: inline-block;
+                                width: calc(100% - 32px);
+                                letter-spacing: 1px;
+                            }
+
+                            a {
+                                display: inline-block;
+                                width: 100%;
+                                //color: rgba(255, 255, 255, 0.65);
+                            }
+
+                            &:hover {
+                                a {
+                                    color: rgb(255, 255, 255);
+                                }
+                            }
+                        }
+                    }
+
+                    // 去掉 padding-bottom
+                    .left-menu.ant-menu-vertical .ant-menu-submenu,
+                    .left-menu.ant-menu-vertical-left .ant-menu-submenu,
+                    .left-menu.ant-menu-vertical-right .ant-menu-submenu,
+                    .left-menu.ant-menu-inline .ant-menu-submenu {
+                        padding-bottom: 0;
+                    }
+                }
+
+                .sider-wrap.back {
+                    background: @back-bg;
+
+                    .logo-wrap {
+                        position: sticky;
+                        top: 0;
+                        left: 0;
+                        z-index: 1;
+                        width: 100%;
+                        height: 84px;
+                        padding-top: 12px;
+                        padding-left: 24px;
+                        background: @back-bg;
+
+                        .menu-type {
+                            padding-right: 24px;
+                        }
+                    }
+
+                    .logo-wrap.exp {
+                        padding: 0;
+                    }
+
+                    // 修改背景色
+                    .left-menu.ant-menu-dark,
+                    .left-menu.ant-menu-dark .ant-menu-sub {
+                        background: @back-bg;
+                    }
+
+                    // 修改具体的样式
+                    .left-menu.ant-menu {
+                        // 修改选中颜色
+                        > .ant-menu-submenu.ant-menu-submenu-selected {
+                            .ant-menu-item.ant-menu-item-selected {
+                                background: #3C5FDF;
+                            }
+                        }
+
+                        > .ant-menu-item.ant-menu-item-selected {
+                            background: #3C5FDF;
+                        }
+                    }
+
+                    .sider-collapsed {
+                        background: #3C5FDF;
+                    }
+                }
+            }
+        }
+
+
+        .animate-component {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            animation-name: fade;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    }
+}
+

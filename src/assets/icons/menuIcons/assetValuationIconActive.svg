@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>icons/一级菜单/资产评估_s</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icons/一级菜单/资产评估_s" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-2">
+            <rect id="矩形" fill="#D8D8D8" opacity="0" x="0" y="0" width="14" height="14"></rect>
+            <g id="编组" transform="translate(0.000000, 1.000000)" fill="#FFFFFF">
+                <rect id="矩形" stroke="#FFFFFF" x="2.5" y="4.5" width="2" height="5" rx="1"></rect>
+                <rect id="矩形备份" stroke="#FFFFFF" x="6.5" y="0.5" width="2" height="9" rx="1"></rect>
+                <rect id="矩形备份-2" stroke="#FFFFFF" x="10.5" y="3.5" width="2" height="6" rx="1"></rect>
+                <rect id="矩形" x="0" y="2" width="1" height="10" rx="0.5"></rect>
+                <rect id="矩形备份-3" transform="translate(7.000000, 11.500000) rotate(90.000000) translate(-7.000000, -11.500000) " x="6.5" y="4.5" width="1" height="14" rx="0.5"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

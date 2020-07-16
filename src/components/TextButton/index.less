@@ -1,0 +1,21 @@
+.text-button {
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+    color: #1890FF;
+    text-decoration: none;
+    user-select: none;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.text-button.disabled {
+    cursor: not-allowed;
+    color: rgba(0, 0, 0, 0.25);
+}
+
+.text-button + .text-button {
+    margin-left: 8px;
+}
