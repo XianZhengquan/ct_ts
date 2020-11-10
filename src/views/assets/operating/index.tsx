@@ -5,7 +5,7 @@
  */
 import React, {useEffect, useState, Fragment} from 'react';
 import {message} from 'antd';
-import {UploadFile, TextButton, BaseTable, SearchLine} from 'components';
+import {UploadFile, TextButton, BaseTable, SearchLine, UploadImage} from 'components';
 import {ITableOptionsProps} from 'components/BaseTable/interface';
 import {SearchLineOptionsProps} from 'components/SearchLine/interface';
 
@@ -14,7 +14,8 @@ interface IDataSourceProps {
     id: string;
     name: string;
     age: number;
-    [propsName:string]:any
+
+    [propsName: string]: any
 }
 
 const Assets: React.FC = () => {
@@ -62,11 +63,11 @@ const Assets: React.FC = () => {
             placeholder: '哈哈哈'
         },
         {
-            type:'cascader',
-            field:'cascader',
-            initialValue:[],
-            options:[],
-            fieldNames:{
+            type: 'cascader',
+            field: 'cascader',
+            initialValue: [],
+            options: [],
+            fieldNames: {
                 label: 'label',
                 value: 'value',
                 children: 'children'
@@ -107,8 +108,9 @@ const Assets: React.FC = () => {
 
     return (
         <article className='assets'>
-            项目楼宇
             <UploadFile />
+            <hr />
+            <UploadImage />
             <hr />
             <section>
                 <h1>文字按钮</h1>
@@ -123,8 +125,8 @@ const Assets: React.FC = () => {
             <section>
                 <h1>基础表格</h1>
                 <BaseTable<IDataSourceProps> {...tableOptions}
-                                            currentPage={1}
-                                            onChange={onChange} />
+                                             currentPage={1}
+                                             onChange={onChange} />
             </section>
             <hr />
             <section>

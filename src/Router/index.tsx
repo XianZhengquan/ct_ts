@@ -6,7 +6,7 @@ import loadable from '@loadable/component';
 import {RootCtx} from 'Root';
 import {IRouteConfParams} from 'config/routers';
 
-type RouteComponentProps = Omit<IRouteConfParams, 'children' | 'symbol' | 'level' | 'show' >
+type RouteComponentProps = Omit<IRouteConfParams, 'children' | 'symbol' | 'level' | 'show'>
 
 // 懒加载的Route
 const RouteComponent = loadable<RouteComponentProps>(
@@ -19,7 +19,7 @@ const RouteComponent = loadable<RouteComponentProps>(
 
 const Router: React.FC = () => {
     // 获取路由数据
-    const {rootOptions} = useContext(RootCtx);
+    const {rootOptions: {routeData}} = useContext(RootCtx);
 
     // 将 RouterConf 转换为路由
     function transformRoute(data: IRouteConfParams[]) {
@@ -52,7 +52,8 @@ const Router: React.FC = () => {
                        render={props => <RouteComponent component='/login' path='/login' />} />
                 <ILayout>
                     <Switch>
-                        {transformRoute(rootOptions.routeData)}
+                        <Route exact path="/" render={_ => (<Redirect to={routeData[0].redirect as string} />)} />
+                        {transformRoute(routeData)}
                     </Switch>
                 </ILayout>
             </Switch>

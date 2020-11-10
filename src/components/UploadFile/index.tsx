@@ -3,21 +3,17 @@
  * @author XianZhengquan
  * @create 2020/4/17
  */
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Button, message, Upload} from 'antd';
 import {UploadOutlined} from '@ant-design/icons';
 import {UploadChangeParam, UploadFile as UploadFileListProps} from 'antd/es/upload/interface';
 import {IUploadFileProps} from './interface';
+import {FileApi} from 'api/file';
 
 const UploadFile: React.FC<IUploadFileProps> = (props) => {
-    const {ascriptionType = '', ascriptionId = '', multiple = true, size = 50, limit, accept, tips, defaultFileList, checkUpdating, onChange} = props;
+    const {ascriptionType = '', ascriptionId = '', multiple = true, size = 50, limit = 9999, accept, tips, defaultFileList, checkUpdating, onChange, uploadText = '点击上传'} = props;
     // 文件列表
-    const [fileList, setFileList] = useState<UploadFileListProps<any>[]>([]);
-
-    // cdm 设置默认文件列表
-    useEffect(() => {
-        if (defaultFileList) setFileList(defaultFileList);
-    }, [defaultFileList]);
+    const [fileList, setFileList] = useState<UploadFileListProps<any>[]>(defaultFileList ?? []);
 
     // 文件上传之前
     function beforeUpload(file: UploadFileListProps) {
@@ -47,6 +43,7 @@ const UploadFile: React.FC<IUploadFileProps> = (props) => {
             const index = fileList.length - limit;
             fileList.splice(-index);
         }
+
         // 上传文件出错之后，fileList移除上传出错的
         if (file.status === 'error') {
             message.error('上传失败！');
@@ -56,6 +53,7 @@ const UploadFile: React.FC<IUploadFileProps> = (props) => {
             message.error('上传失败！');
             fileList.splice(fileList.findIndex(item => item.uid === file.uid));
         }
+
         // 设置值 fileList
         setFileList(fileList
             .filter(item => {
@@ -66,8 +64,10 @@ const UploadFile: React.FC<IUploadFileProps> = (props) => {
                 return true;
             })
             .map(item => ({...item, url: item?.response?.data?.fileUrl ?? ''})));
+
         // 传递上传状态
         void checkUpdating?.(!!fileList.filter(item => item.status === 'uploading').length);
+
         // 传递文件列表
         void onChange?.(fileList
             .filter(item => {
@@ -81,9 +81,10 @@ const UploadFile: React.FC<IUploadFileProps> = (props) => {
     }
 
     // 文件删除
-    async function onRemove(file: UploadFileListProps) {
+    async function onRemove(file: UploadFileListProps<any>) {
         try {
-
+            // @ts-ignore
+            await FileApi.removeFile(file.fileId || file?.response?.data?.fileId);
         } catch (e) {
             console.log(e);
             return Promise.reject();
@@ -93,7 +94,7 @@ const UploadFile: React.FC<IUploadFileProps> = (props) => {
     return (
         <Upload name='file'
                 action='/api/file/fileManage/uploadFile'
-                headers={{Authorization: localStorage.token}}
+                headers={{Authorization: sessionStorage.token}}
                 data={{ascriptionType, ascriptionId}}
                 multiple={multiple}
                 fileList={fileList}
@@ -101,13 +102,7 @@ const UploadFile: React.FC<IUploadFileProps> = (props) => {
                 onChange={handleChange}
                 onRemove={onRemove}>
             {
-                limit
-                    ? fileList.length < limit && (<Button>
-                    <UploadOutlined /> 点击上传
-                </Button>)
-                    : (<Button>
-                        <UploadOutlined /> 点击上传
-                    </Button>)
+                fileList.length < limit ? (<Button><UploadOutlined /> {uploadText}</Button>) : null
             }
         </Upload>
     );

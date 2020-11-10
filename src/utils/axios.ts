@@ -28,7 +28,7 @@ service.interceptors.request.use(
         config.timeout = config.url === '/api/import/importExport/importExcel' ? 120000 : 120000;
         config.headers['Authorization'] = config.url === '/api/auth/oauth/token'
             ? 'Basic dWFwOnVhcA=='
-            : localStorage.token;
+            : sessionStorage.token;
         return config;
     },
     err => {
@@ -57,7 +57,6 @@ service.interceptors.response.use(
         if (err.response) {
             if (err.response.data.status === 401) {
                 message.error(err.response.data.message);
-                localStorage.clear();
                 sessionStorage.clear();
                 setTimeout(_ => {
                     window.location.href = window.location.origin;

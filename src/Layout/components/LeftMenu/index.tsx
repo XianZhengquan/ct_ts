@@ -5,9 +5,6 @@ import {useHistory, useLocation, NavLink} from 'react-router-dom';
 import {RootCtx} from 'Root';
 import MenuIcons from 'assets/icons/menuIcons';
 import {IRouteConfParams} from 'config/routers';
-import TestSvg from 'assets/icons/menuIcons/assetsManagementIcon.svg';
-
-console.log(TestSvg);
 
 const LeftMenu: React.FC = () => {
     const history = useHistory();
@@ -26,18 +23,20 @@ const LeftMenu: React.FC = () => {
         }
     }, [history, routeData]);
 
-    // 设置默认选中只执行一次
-    const [isSetDefault, setIsSetDefault] = useState(false);
     // cdm 设置默认选中
     useEffect(() => {
-        if (!isSetDefault) {
-            const path = routeData.filter(item => location.pathname.includes(item.path))[0];
-            if (path) {
-                if (currentKey !== path.redirect) setCurrentKey(path.redirect ?? '');
+        // 找到当前的1级菜单
+        const current = routeData.find(item => location.pathname.includes(item.path));
+        if (current) {
+            // 有子集 当前菜单指向子集中的一个
+            const children = current?.children?.filter(item => item.show);
+            if (children?.length) {
+                setCurrentKey(children?.find(item => location.pathname.includes(item.path))?.redirect ?? (current?.redirect ?? ''));
+            } else {
+                setCurrentKey(current?.redirect ?? '');
             }
-            setIsSetDefault(true);
         }
-    }, [currentKey, isSetDefault, location.pathname, routeData]);
+    }, [location, routeData]);
 
     // 创建 MenuItem
     function renderMenuItem(data: IRouteConfParams[]): React.ReactNode {
@@ -77,14 +76,13 @@ const LeftMenu: React.FC = () => {
     }
 
     // 菜单点击
-    function handleClick({key}: { key: string }) {
+    function handleClick({key}: any) {
         if (key === currentKey) return;
         setCurrentKey(key);
     }
 
     return (
         <Fragment>
-
             <Menu className='left-menu'
                   theme="dark"
                   mode="inline"

@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import {Table} from 'antd';
-import useSize from 'hooks/useSize';
+import {useSize} from 'hooks';
 import {IBaseTableProps, ITableOptionsProps} from './interface';
 
 function BaseTable<T extends object = {}>(props: IBaseTableProps<T>): JSX.Element {

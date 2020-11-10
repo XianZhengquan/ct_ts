@@ -1,0 +1,104 @@
+.features-content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 320px;
+
+    .features-content-wrap {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+
+        .content-item {
+            width: 160px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            padding-left: 16px;
+
+            .item-label {
+                cursor: pointer;
+                display: flex;
+                font-size: 14px;
+                color: rgba(83, 88, 102, 1);
+                margin-right: 8px;
+
+                .icon {
+                    margin-right: 8px;
+                }
+            }
+
+            .item-label.active {
+                .label {
+                    font-weight: bold;
+                }
+            }
+
+            .tag {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 20px;
+                background: rgba(255, 245, 237, 1);
+                border-radius: 2px;
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba(252, 153, 119, 1);
+            }
+        }
+    }
+
+    .features-content-center {
+        width: 100%;
+        padding: 0 16px 16px;
+        overflow: hidden;
+        position: relative;
+
+        .center-split {
+            width: 100%;
+            height: 0;
+            border-top: 1px dashed #F2F2F2;
+        }
+
+        .center-button {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 32px;
+            background: rgba(241, 242, 253, 1);
+            font-size: 14px;
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            color: rgba(136, 140, 251, 1);
+            cursor: pointer;
+        }
+
+        .tag {
+            position: absolute;
+            top: 50%;
+            right: 24px;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 20px;
+            background: rgba(255, 245, 237, 1);
+            border-radius: 2px;
+            font-size: 12px;
+            font-weight: 400;
+            color: rgba(252, 153, 119, 1);
+        }
+    }
+}
+
+.features-pop {
+    .ant-popover-inner {
+        border-radius: 0;
+    }
+
+    .ant-popover-inner-content {
+        padding: 0;
+    }
+}

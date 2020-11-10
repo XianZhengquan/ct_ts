@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>icons/一级菜单/项目楼宇_n</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icons/一级菜单/项目楼宇_n" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons/一级菜单/首页_n">
+            <rect id="矩形" fill="#D8D8D8" opacity="0" x="0" y="0" width="14" height="14"></rect>
+            <g id="编组">
+                <rect id="矩形" stroke="#D3D6DC" x="0.5" y="0.5" width="5.5" height="5.5" rx="1"></rect>
+                <rect id="矩形备份-2" stroke="#D3D6DC" x="0.5" y="8" width="5.5" height="5.5" rx="1"></rect>
+                <rect id="矩形备份" stroke="#D3D6DC" x="8" y="0.5" width="5.5" height="5.5" rx="1"></rect>
+                <circle id="椭圆形" stroke="#D3D6DC" cx="10.55" cy="10.55" r="2.55"></circle>
+                <path d="M11.650853,12.3541408 L12.3579598,11.647034 L13.7721733,13.0612476 C13.9674355,13.2565098 13.9674355,13.5730922 13.7721733,13.7683544 C13.5769112,13.9636165 13.2603287,13.9636165 13.0650666,13.7683544 L11.650853,12.3541408 Z" id="矩形" fill="#D3D6DC"></path>
+            </g>
+        </g>
+    </g>
+</svg>

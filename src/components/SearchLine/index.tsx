@@ -1,38 +1,20 @@
 import React, {useEffect, useMemo} from 'react';
-import {Form, Space, Input, Select, Cascader, Radio} from 'antd';
+import {Form, Space, Input, Select, Cascader, Radio, Button} from 'antd';
 import {ISearchLineProps, SearchLineOptionsProps} from './interface';
 import './index.less';
 
-// TODO button的位置，回车事件的处理
 // FormItem
 const FormItem: React.FC<SearchLineOptionsProps> = (props) => {
-    if (props.type === 'input') {
-        return (<Form.Item name={props.field}>
-            <Input placeholder={props.placeholder ?? '请输入'}
-                   allowClear={true}
-                   style={{width: props.width ?? 'auto'}} />
-        </Form.Item>);
-    } else if (props.type === 'radios') {
-        return (<Radio.Group buttonStyle='solid'>
-            {props.options.map(item => (
-                <Radio.Button key={item.value}
-                              value={item.value}>
-                    {item.label}
-                </Radio.Button>
-            ))}
-        </Radio.Group>);
-    } else if (props.type === 'select') {
-        return (
-            <Select placeholder={props.placeholder}
-                    showSearch
-                    filterOption={(input, option) => option?.props?.children?.toLowerCase().indexOf(input.toLowerCase()) >= 0}
-                    allowClear
-                    style={{width: props.width ?? 200}}>
-
-            </Select>
-        );
-    } else if (props.type === 'cascader') {
-        return (<Cascader options={props.options}
+    switch (props.type) {
+        case 'input':
+            return (<Form.Item name={props.field}>
+                <Input placeholder={props.placeholder ?? '请输入'}
+                       allowClear={true}
+                       style={{width: props.width ?? 'auto'}} />
+            </Form.Item>);
+        case 'cascader':
+            return (<Form.Item name={props.field}>
+                <Cascader options={props.options}
                           placeholder={props.placeholder}
                           changeOnSelect={props.changeOnSelect ?? true}
                           showSearch={true}
@@ -41,9 +23,31 @@ const FormItem: React.FC<SearchLineOptionsProps> = (props) => {
                               label: 'label',
                               value: 'value',
                               children: 'children'
-                          }} />);
-    } else {
-        return null;
+                          }} />
+            </Form.Item>);
+        case 'radios':
+            return (<Form.Item name={props.field}>
+                <Radio.Group buttonStyle='solid'>
+                    {props.options.map(item => (
+                        <Radio.Button key={item.value}
+                                      value={item.value}>
+                            {item.label}
+                        </Radio.Button>
+                    ))}
+                </Radio.Group>
+            </Form.Item>);
+        case 'select':
+            return (<Form.Item name={props.field}>
+                <Select placeholder={props.placeholder}
+                        showSearch
+                        filterOption={(input, option) => option?.props?.children?.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                        allowClear
+                        style={{width: props.width ?? 200}}>
+
+                </Select>
+            </Form.Item>);
+        default :
+            return null;
     }
 };
 
@@ -59,16 +63,17 @@ const SearchLine: React.FC<ISearchLineProps> = ({extra, space, options, onChange
         }, {});
     }, [options]);
 
-    // cdm
     // options有变化时，重新给表单设值
     useEffect(() => {
-        console.log(1);
         const initialValues = options.reduce((values: { [propsName: string]: any }, item) => {
             values[item.field] = item.initialValue;
             return values;
         }, {});
         form.setFieldsValue(initialValues);
     }, [form, options]);
+
+    // 是否有 input 类型的表单
+    const haveInput = useMemo(() => options.some(item => item.type === 'input'), [options]);
 
     // 渲染 FormItem
     function renderFormItem(data: SearchLineOptionsProps[]): React.ReactNode {
@@ -100,6 +105,9 @@ const SearchLine: React.FC<ISearchLineProps> = ({extra, space, options, onChange
                       initialValues={initialValues}
                       form={form}>
                     {renderFormItem(options)}
+                    {haveInput && (<Form.Item>
+                        <Button htmlType='submit'>搜索</Button>
+                    </Form.Item>)}
                 </Form>
             </section>
             <section className="extra-wrap">

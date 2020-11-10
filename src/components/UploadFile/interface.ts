@@ -24,6 +24,7 @@ export interface IUploadFileProps {
     tips?: string;
     checkUpdating?: (uploading: boolean) => void;
     onChange?: (fileList: UploadFileListProps<any>[]) => void;
+    uploadText?: React.ReactNode;
 }
 
 export default IUploadFileProps;

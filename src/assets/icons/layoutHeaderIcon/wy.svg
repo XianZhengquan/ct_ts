@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>icons/nav/物业管理_s</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icons/nav/物业管理_s" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(1.665347, 2.000000)">
+            <circle id="Oval" stroke="#979797" cx="6.33465311" cy="3" r="3"></circle>
+            <path d="M12.6693062,12.3346531 C12.6693062,8.8361208 9.83318542,6 6.33465311,6 C2.8361208,6 -2.56683563e-13,8.8361208 -2.56683563e-13,12.3346531 L12.6693062,12.3346531 Z" id="Path" stroke="#979797" stroke-linejoin="round"></path>
+            <polygon id="Path-4" fill="#979797" points="5.0062448 5.99311829 6.33475992 7.99311829 7.66327505 5.99311829"></polygon>
+            <polygon id="Path-4-Copy" fill="#979797" transform="translate(6.334760, 9.149170) scale(1, -1) translate(-6.334760, -9.149170) " points="5.7573292 10.2983398 6.33465311 11.2983398 6.91197703 10.2983398 7.33550761 7.72995002 6.33465311 7 5.33401224 7.72995002"></polygon>
+        </g>
+    </g>
+</svg>

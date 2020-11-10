@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>icons/一级菜单/员工管理_s copy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="基础平台" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="一级菜单x-copy" transform="translate(-25.000000, -142.000000)" fill="#FFFFFF">
+            <g id="一级菜单" transform="translate(0.000000, 73.000000)">
+                <g id="icons" transform="translate(25.000000, 13.000000)">
+                    <g id="icons/一级菜单/用户管理_s" transform="translate(0.000000, 56.000000)">
+                        <g id="Group">
+                            <rect id="Rectangle" opacity="0" x="0" y="0" width="14" height="14"></rect>
+                            <g id="icons/一级菜单/用户管理_s" fill-rule="nonzero">
+                                <path d="M7,0 C9.209139,0 11,1.790861 11,4 C11,5.40190344 10.2788062,6.63536303 9.18718963,7.3496077 C11.9823338,8.26733696 14,10.8980429 14,14 L14,14 L0,14 C0,10.8980429 2.01766623,8.26733696 4.81220162,7.34867931 C3.72119382,6.63536303 3,5.40190344 3,4 C3,1.790861 4.790861,0 7,0 Z"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

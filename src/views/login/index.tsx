@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {Button} from 'antd';
-import {RootCtx} from 'Root';
+import {PageType, RootCtx} from 'Root';
 import {LoginApi} from 'api/login';
 
 const LoginPage: React.FC = () => {
@@ -37,9 +37,9 @@ const LoginPage: React.FC = () => {
                 password: 'smart1119',
                 companyId
             });
-            localStorage.token = `Bearer ${data.access_token}`;
-            localStorage.userName = data.userName;
-            localStorage.userId = data.userId;
+            sessionStorage.token = `Bearer ${data.access_token}`;
+            sessionStorage.userName = data.userName;
+            sessionStorage.userId = data.userId;
             await getAllInfo();
         } catch (e) {
             console.log(e);
@@ -50,10 +50,16 @@ const LoginPage: React.FC = () => {
     // 登录之后获取当前用户信息、获取枚举、获取菜单
     async function getAllInfo() {
         try {
+            // 获取当前所拥有的纬度
+            const {data: dimData} = await LoginApi.getDim();
             // 获取菜单
-            const {data} = await LoginApi.getAuthorityMenu();
+            const {data} = await LoginApi.getAuthorityMenu({dim: dimData[0]?.value});
             sessionStorage.menus = JSON.stringify(data);
-            setRootOptions(v => ({...v, routeData: data, login: true}));
+            // 获取枚举
+            const {data: enumData} = await LoginApi.getEnum();
+            sessionStorage.enum = JSON.stringify(enumData);
+            // 设置根数据
+            setRootOptions(v => ({...v, routeData: data, pageType: (dimData[0]?.value + '') as PageType, login: true}));
             setLoading(false);
             history.push('/');
         } catch (e) {

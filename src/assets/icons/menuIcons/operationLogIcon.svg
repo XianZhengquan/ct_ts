@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="13px" viewBox="0 0 14 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>icons/一级菜单/操作日志_n</title>
+    <desc>Created with Sketch.</desc>
+    <g id="基础平台" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="一级菜单s-copy" transform="translate(-25.000000, -647.000000)" stroke="#D3D6DC">
+            <g id="一级菜单" transform="translate(0.000000, 73.000000)">
+                <g id="icons" transform="translate(25.000000, 13.000000)">
+                    <g id="icons/一级菜单/操作日志_n" transform="translate(0.000000, 560.000000)">
+                        <rect id="Rectangle" x="0.5" y="2.5" width="13" height="11" rx="1"></rect>
+                        <line x1="3.9912738" y1="1.00007615" x2="3.9912738" y2="4.00007615" id="Line" stroke-linecap="round" transform="translate(3.991274, 2.500076) rotate(-1.000000) translate(-3.991274, -2.500076) "></line>
+                        <line x1="9.9912738" y1="1.00007615" x2="9.9912738" y2="4.00007615" id="Line-Copy" stroke-linecap="round" transform="translate(9.991274, 2.500076) rotate(-1.000000) translate(-9.991274, -2.500076) "></line>
+                        <line x1="3" y1="10" x2="9" y2="10" id="Line-2-Copy" stroke-linecap="round"></line>
+                        <line x1="3" y1="7" x2="11" y2="7" id="Line-2" stroke-linecap="round"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

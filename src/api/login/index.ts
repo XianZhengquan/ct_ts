@@ -24,13 +24,20 @@ export const LoginApi = {
     getComList: (data: object) => axios.post('/company/company_users/companies', data),
 
     // 获取路由
-    // getAuthorityMenu: data => axios.get('/user/menu/authorityMenu', data)
-    // getAuthorityMenu: data => axios.get('/mock/menu', data),
-    getAuthorityMenu: () => axios.get('/user/users/menus'),
+    getAuthorityMenu: (params?: any) => axios.get('/user/users/menus', {params}),
 
     // 登录后 获取当前用户信息
     getCurrentUserInfo: () => axios.get(`/user/users/current`),
 
     // 退出登录
-    loginOut: () => axios.delete(`/auth/authentication/token`)
+    loginOut: () => axios.delete(`/auth/authentication/token`),
+
+    // 更改登录密码
+    updatePassword: (data: object) => axios.put('/user/users/password', data),
+
+    // 根据用户获取菜单纬度
+    getDim: () => axios.get(`/user/menus/dim`),
+
+    // 获取枚举
+    getEnum: () => axios.get('/setting/enums'),
 };

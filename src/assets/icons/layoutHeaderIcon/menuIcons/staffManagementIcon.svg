@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>icons/一级菜单/用户管理_n copy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="基础平台" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="一级菜单s-copy" transform="translate(-25.000000, -142.000000)">
+            <g id="一级菜单" transform="translate(0.000000, 73.000000)">
+                <g id="icons" transform="translate(25.000000, 13.000000)">
+                    <g id="icons/一级菜单/用户管理_n" transform="translate(0.000000, 56.000000)">
+                        <g id="Group">
+                            <rect id="Rectangle" fill="#FFFFFF" opacity="0" x="0" y="0" width="14" height="14"></rect>
+                            <path d="M7,0.55 C6.04730881,0.55 5.18480881,0.936154403 4.5604816,1.5604816 C3.9361544,2.18480881 3.55,3.04730881 3.55,4 C3.55,5.20921953 4.17215053,6.27308196 5.11317843,6.88833926 L6.07023603,7.51407701 L4.9839624,7.87117164 C3.67949792,8.29999293 2.55891802,9.13383651 1.77046924,10.2236133 C1.10546703,11.1427649 0.677020895,12.2442237 0.574077087,13.4387198 L13.3995453,13.1890364 C13.2563268,12.0469398 12.8144404,10.9977396 12.1544624,10.1221888 C11.3706461,9.08234953 10.2794749,8.28712411 9.01561927,7.87216259 L7.92918205,7.51545282 L8.88605619,6.8893701 C9.82768413,6.27326297 10.45,5.20935634 10.45,4 C10.45,3.04730881 10.0638456,2.18480881 9.4395184,1.5604816 C8.81519119,0.936154403 7.95269119,0.55 7,0.55 Z" id="Combined-Shape" stroke="#D3D6DC" stroke-width="1.1" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

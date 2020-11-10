@@ -3,21 +3,33 @@
  * @author XianZhengquan
  * @create 2020/4/17
  */
-import React, {useEffect, useState} from 'react';
-import {Button, message, Upload} from 'antd';
-import {UploadOutlined} from '@ant-design/icons';
+import React, {useState} from 'react';
+import {message, Upload, Modal} from 'antd';
+import {PlusOutlined} from '@ant-design/icons';
 import {UploadChangeParam, UploadFile as UploadFileListProps} from 'antd/es/upload/interface';
 import {IUploadImageProps} from './interface';
+import {FileApi} from 'api/file';
+
+// 上传按钮
+const uploadButton = (<div>
+    <PlusOutlined />
+    <div style={{marginTop: 8}}>上传图片</div>
+</div>);
+// 上传的类型
+// const imageType = ['image/jpeg', 'image/png', 'image/jpg', 'image/bmp'];
+const imageType = ['jpeg', 'png', 'jpg', 'bmp'];
 
 const UploadImage: React.FC<IUploadImageProps> = (props) => {
-    const {ascriptionType = '', ascriptionId = '', multiple = true, size = 50, limit, accept, tips, defaultFileList, checkUpdating, onChange} = props;
-    // 文件列表
-    const [fileList, setFileList] = useState<UploadFileListProps<any>[]>([]);
+    const {ascriptionType = '', ascriptionId = '', multiple = true, size = 50, limit = 3, accept = imageType, tips, defaultFileList, checkUpdating, onChange, disabled = false} = props;
 
-    // cdm 设置默认文件列表
-    useEffect(() => {
-        if (defaultFileList) setFileList(defaultFileList);
-    }, [defaultFileList]);
+    // 模态框配置
+    const [modalOptions, setModalOptions] = useState<{ visible: boolean; imageUrl?: string }>({
+        visible: false,
+        imageUrl: ''
+    });
+
+    // 文件列表
+    const [fileList, setFileList] = useState<UploadFileListProps<any>[]>(defaultFileList ?? []);
 
     // 文件上传之前
     function beforeUpload(file: UploadFileListProps) {
@@ -47,6 +59,7 @@ const UploadImage: React.FC<IUploadImageProps> = (props) => {
             const index = fileList.length - limit;
             fileList.splice(-index);
         }
+
         // 上传文件出错之后，fileList移除上传出错的
         if (file.status === 'error') {
             message.error('上传失败！');
@@ -56,60 +69,77 @@ const UploadImage: React.FC<IUploadImageProps> = (props) => {
             message.error('上传失败！');
             fileList.splice(fileList.findIndex(item => item.uid === file.uid));
         }
+
         // 设置值 fileList
         setFileList(fileList
             .filter(item => {
-                if (accept) {
-                    const fileTypeList = item.name.split('.');
-                    return accept.includes(fileTypeList[fileTypeList.length - 1]);
-                }
-                return true;
+                const fileTypeList = item.name.split('.');
+                return accept.includes(fileTypeList[fileTypeList.length - 1]);
             })
             .map(item => ({...item, url: item?.response?.data?.fileUrl ?? ''})));
+
         // 传递上传状态
-        void checkUpdating?.(!!fileList.filter(item => item.status === 'uploading').length);
+        void checkUpdating?.(fileList.some(item => item.status === 'uploading'));
+
         // 传递文件列表
         void onChange?.(fileList
             .filter(item => {
-                if (accept) {
-                    const fileTypeList = item.name.split('.');
-                    return accept.includes(fileTypeList[fileTypeList.length - 1]);
-                }
-                return true;
+                const fileTypeList = item.name.split('.');
+                return accept.includes(fileTypeList[fileTypeList.length - 1]);
             })
             .map(item => ({...item, url: item?.response?.data?.fileUrl ?? ''})));
     }
 
-    // 文件删除
-    async function onRemove(file: UploadFileListProps) {
-        try {
+    // 点击当前图片
+    function handlePreview(file: UploadFileListProps<any>) {
+        setModalOptions(v => ({
+            ...v,
+            visible: true,
+            imageUrl: file?.response?.data?.fileUrl ? window.location.origin + file?.response?.data?.fileUrl : (file.url || file.thumbUrl)
+        }));
+    }
 
+    // 文件删除
+    async function onRemove(file: UploadFileListProps<any>) {
+        try {
+            // @ts-ignore
+            await FileApi.removeFile(file.fileId || file?.response?.data?.fileId);
         } catch (e) {
             console.log(e);
             return Promise.reject();
         }
     }
 
+    // 模态框关闭
+    function handleCancel() {
+        setModalOptions(v => ({...v, visible: false, imageUrl: ''}));
+    }
+
     return (
-        <Upload name='file'
-                action='/api/file/fileManage/uploadFile'
-                headers={{Authorization: localStorage.token}}
-                data={{ascriptionType, ascriptionId}}
-                multiple={multiple}
-                fileList={fileList}
-                beforeUpload={beforeUpload}
-                onChange={handleChange}
-                onRemove={onRemove}>
-            {
-                limit
-                    ? fileList.length < limit && (<Button>
-                    <UploadOutlined /> 点击上传
-                </Button>)
-                    : (<Button>
-                        <UploadOutlined /> 点击上传
-                    </Button>)
-            }
-        </Upload>
+        <article className="upload-image">
+            <Upload name='file'
+                    listType="picture-card"
+                    action='/api/file/fileManage/uploadFile'
+                    headers={{Authorization: sessionStorage.token}}
+                    data={{ascriptionType, ascriptionId}}
+                    multiple={multiple}
+                    fileList={fileList}
+                    disabled={disabled}
+                    beforeUpload={beforeUpload}
+                    onChange={handleChange}
+                    onPreview={handlePreview}
+                    onRemove={onRemove}>
+                {fileList.length < limit ? uploadButton : null}
+            </Upload>
+            <Modal visible={modalOptions.visible}
+                   footer={null}
+                   width='50%'
+                   onCancel={handleCancel}>
+                <img alt=""
+                     style={{maxWidth: '100%', height: 'auto'}}
+                     src={modalOptions.imageUrl} />
+            </Modal>
+        </article>
     );
 };
 

@@ -24,6 +24,7 @@ export interface IUploadImageProps {
     tips?: string;
     checkUpdating?: (uploading: boolean) => void;
     onChange?: (fileList: UploadFileListProps<any>[]) => void;
+    disabled?: boolean;
 }
 
 export default IUploadImageProps;

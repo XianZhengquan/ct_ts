@@ -8,15 +8,30 @@ const {createProxyMiddleware} = require('http-proxy-middleware'); // 1.0.0版本
 module.exports = function (app) {
     // 后端api
     app.use('/api', createProxyMiddleware({
-        // target: 'http://uap-test.uokohome.com:8970/api', // test1
-        // target: 'http://182.151.18.47:8970/api', // test2
-        target: 'http://192.168.200.76:10002/api', // 开发环境
-        // target: 'http://pf.myream.com/api', // 好房线上
+        // target: 'http://192.168.200.76:10002/api', // 开发环境
+        // target: 'http://pf.myream.com/api', // 好房线上一天
         // target: 'https://zg.pm-cdci.cn/api', // 城投线上
+        target: 'http://pf-test.uokohome.com/api', // 测试
+        // target: 'https://pf.pre.uoko.com/api', // 预发布
         changeOrigin: true,
         pathRewrite: {
             '^/api': ''
         }
+    }));
+
+    // 附件
+    app.use('/default', createProxyMiddleware({
+        target: 'http://192.168.200.43:8970/default',
+        changeOrigin: true,
+        pathRewrite: {
+            '^/default': ''
+        }
+    }));
+
+    // 图片
+    app.use('/cos', createProxyMiddleware({
+        target: 'http://pf-test.uokohome.com',
+        changeOrigin: true
     }));
 
     // mock
